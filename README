@@ -1,0 +1,19 @@
+The purpose of this project was to create a user interface that mimics the 
+native mail application when viewing a message (and safari on iPhone) where
+the header and footer views scroll vertically with the body, but not horizontally
+and not zoom.  
+
+This effect was achieved by:
+
+1) Finding the UIScrollView inside a UIWebView
+2) Placing the header and footer controls inside the UIScrollView
+3) Tracking the UIScrollView's delegate events and moving the header and
+   footer as needed.
+   
+Of course, nothing is simple in this land, so there are lots more details.
+Compatible with iOS 3.2+ (iPad) and 4.0+ (iPhone).  This version requirement
+is due to the fact that prior to these versions, UIWebView used a private class,
+UIScroller, to handle the scrolling and zooming.  In these newer versions, there
+is now a UIScrollView, public class :)  No private APIs are being used, however
+it does traverse the view hierarchy within the UIWebView.  I have not yet
+submitted an app using this technique, but will update this document with results.  
